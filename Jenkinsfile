@@ -22,7 +22,7 @@ pipeline {
                                 configName: 'staging',
                                 sshCredentials: [
                                     username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"]
+                                    encryptedPassphrase: "$USERPASS"],
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'dist/trainSchedule.zip',
@@ -54,7 +54,7 @@ pipeline {
                             configName: 'production',
                             sshCredentails: [
                                 username: "$USERNAME",
-                                encryptedPassphrase: "$USERPASS"]
+                                encryptedPassphrase: "$USERPASS"],
                             transfers: [
                                 sshTransfer(
                                     sourceFiles: 'dist/trainSchedule.zip',
