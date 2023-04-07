@@ -51,17 +51,18 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'production',
-                                sshCredentails: [
+                                sshCredentials: [
                                     username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"],
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'dist/trainSchedule.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: 'sudo /usr/bin/systemctl stop train-schedule && rm -rf /opt/train-schedule/* && unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo /usr/bin/systemctl start train-schedule && echo maybe good'
-                                     )
-                                 ]
+                                        execCommand: 'sudo /usr/bin/systemctl stop train-schedule && rm -rf /opt/train-schedule/* && unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo /usr/bin/systemctl start train-schedule && echo try me'
+                                    )
+                                ]
                             )
                         ]
                     )
